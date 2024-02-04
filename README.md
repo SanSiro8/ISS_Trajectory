@@ -1,24 +1,24 @@
-#ISS_Trajectory
+# ISS_Trajectory
 
 These are different ways of plotting the ISS trajectory over the earth.
 
-The API keys are deleted in this script and should be included individually.
+## The API keys are deleted in this script and should be included individually.
 
 This script contains several programs for creating images and visualizations of the ISS trajectory. Each program has its own function and is executed sequentially.
 
-Program 1: This program reads CSV files with ISS motion data and creates a map of ISS trajectories on the Earth. The data is already in polar coordinates and is shown on the map. It also shows where and how many photos were taken.
+### Program 1: This program reads CSV files with ISS motion data and creates a map of ISS trajectories on the Earth. The data is already in polar coordinates and is shown on the map. It also shows where and how many photos were taken.
 
-Program 2: This program reads XML data about the ISS space station and converts Cartesian coordinates into longitudinal and lateral coordinates. The longitude and latitude of the ISS trajectory are shown on a 2D map of the world.
+### Program 2: This program reads XML data about the ISS space station and converts Cartesian coordinates into longitudinal and lateral coordinates. The longitude and latitude of the ISS trajectory are shown on a 2D map of the world.
 
-Program 3: This program visualizes the 3D trajectory of the ISS based on XML data. This is done on a transparent sphere to better show the orbit.
+### Program 3: This program visualizes the 3D trajectory of the ISS based on XML data. This is done on a transparent sphere to better show the orbit.
 
-Program 4: This program visualizes the trajectory of the ISS on a rotating 3D globe in 2D. It creates a GIF that shows the rotating Earth with the ISS orbit above it.
+### Program 4: This program visualizes the trajectory of the ISS on a rotating 3D globe in 2D. It creates a GIF that shows the rotating Earth with the ISS orbit above it.
 
-Program 5: This program visualizes the trajectory of the ISS on a 3D globe. The data can be rotated in the graphic and seen from all sides. The ISS is plotted at the correct height above the Earth, and its orbit is also visible.
+### Program 5: This program visualizes the trajectory of the ISS on a 3D globe. The data can be rotated in the graphic and seen from all sides. The ISS is plotted at the correct height above the Earth, and its orbit is also visible.
 
-Program 6: This program visualizes the current position of the ISS on a map. It uses an API to obtain the position of the ISS at the time the program is run. This location is then updated on the map for a period or indefinitely.
+### Program 6: This program visualizes the current position of the ISS on a map. It uses an API to obtain the position of the ISS at the time the program is run. This location is then updated on the map for a period or indefinitely.
 
-Program 7: This script retrieves the predicted location of the International Space Station (ISS) using the N2YO API. It calculates the start time of the next ISS pass for the user's automatically obtained location. It also retrieves the altitude of the user's location and returns the pass time in the observer's time zone. Weather forecasts are also included in the program to obtain a more accurate result, with a particular focus on clouds, ensuring the safety of this statement. All this is output as text in a plot, with weather data shown on the maps.
+### Program 7: This script retrieves the predicted location of the International Space Station (ISS) using the N2YO API. It calculates the start time of the next ISS pass for the user's automatically obtained location. It also retrieves the altitude of the user's location and returns the pass time in the observer's time zone. Weather forecasts are also included in the program to obtain a more accurate result, with a particular focus on clouds, ensuring the safety of this statement. All this is output as text in a plot, with weather data shown on the maps.
 
 
             Hinweis:    
