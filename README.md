@@ -1,45 +1,28 @@
-# ISS_Trajectory
-These are different ways of plotting the ISS-Trajectory over the earth
+#ISS_Trajectory
 
-Dieses Skript enthält mehrere Programme zur Erstellung von Bildern und Visualisierungen der ISS-Trajektorie.
-Jedes Programm hat eine eigene Funktion und wird nacheinander ausgefÃ¼hrt.
+These are different ways of plotting the ISS trajectory over the earth.
 
-Programm 1:
-Dieses Programm liest CSV-Dateien mit ISS-Bewegungsdaten ein und erstellt eine Karte der ISS-Trajektorien auf der Erde.
-Die Daten sind schon in Polar-Koordinaten und werden auf der Karte gezeigt. Hier wird auch ersichtlich, wo wieviele Fotos gemacht wurden.
+The API keys are deleted in this script and should be included individually.
 
-Programm 2:
-Dieses Programm liest XML-Daten über die ISS-Spacestation ein und konvertiert die kartesischen Koordinaten in longitudinale und laterale Koordinaten.
-Es werden die Längen- und Breitengrade der ISS-Trajektorie auf einer 2D-Karte der Welt dargestellt.
+This script contains several programs for creating images and visualizations of the ISS trajectory. Each program has its own function and is executed sequentially.
 
-Programm 3:
-Dieses Programm visualisiert die 3D-Trajektorie der ISS basierend auf XML-Daten.
-Dies wird hier auf einer durchsichtigen Kugel gemacht, um die Umlaufbahn besser zu zeigen
+Program 1: This program reads CSV files with ISS motion data and creates a map of ISS trajectories on the Earth. The data is already in polar coordinates and is shown on the map. It also shows where and how many photos were taken.
 
-Programm 4:
-Dieses Programm visualisiert die Trajektorie der ISS auf einem rotierenden 3D-Globus in 2D.
-Es wird ein GIF erstellt, welches die rotierende Erdkugel mit den ISS-Laufbahn darüber zeigt
+Program 2: This program reads XML data about the ISS space station and converts Cartesian coordinates into longitudinal and lateral coordinates. The longitude and latitude of the ISS trajectory are shown on a 2D map of the world.
 
-Programm 5:
-Dieses Programm visualisiert die Trajektorie der ISS auf einem 3D-Globus.
-Die Daten können in der Grafik rotiert und somit von allen Seiten gesehen werden. 
-Die ISS wird in der richtigen höhe über der Erde geplottet und es wird auch Ihre umlaufbahn sichtbar.
+Program 3: This program visualizes the 3D trajectory of the ISS based on XML data. This is done on a transparent sphere to better show the orbit.
 
-Programm 6:
-Dieses Programm visualisiert die aktuelle Position der ISS auf einer Karte.
-Es verwendet ein API um die Position der ISS zum Zeitpunkt des laufens des Programmes zu erhalten.
-Diese Ortschaft wird dann für einen Zeitraum oder unendlich lange auf der Karte erneuert.
+Program 4: This program visualizes the trajectory of the ISS on a rotating 3D globe in 2D. It creates a GIF that shows the rotating Earth with the ISS orbit above it.
 
-Programm 7:
-Dieses Skript ruft den vorhergesagten Standort der Internationalen Raumstation (ISS) mithilfe der N2YO-API ab.
-Es berechnet die Startzeit des nÃ¤chsten ISS-Ãberflugs für den automatisch erhaltenen Aufenthaltsorts des Nutzer zurück.
-Es holt auch die höhe des Ortes, des Nutzers und gibt die Überflugszeit in der Zeitzone des Beobachters zurück.
-Ausserdem werden auch noch die Wettervorhersagen in das Programm mit einbezogen, um ein genaueres Ergebniss zu erhalten.
-Hier wird besonders auf die Wolken acht gegeben, wobei auch die Sicherheit für diese Aussage gegeben wird.
-All dies wird in einem Plot als Text ausgegeben, wobei auf den Karten noch die Wetterdaten gezeigt werden.
+Program 5: This program visualizes the trajectory of the ISS on a 3D globe. The data can be rotated in the graphic and seen from all sides. The ISS is plotted at the correct height above the Earth, and its orbit is also visible.
+
+Program 6: This program visualizes the current position of the ISS on a map. It uses an API to obtain the position of the ISS at the time the program is run. This location is then updated on the map for a period or indefinitely.
+
+Program 7: This script retrieves the predicted location of the International Space Station (ISS) using the N2YO API. It calculates the start time of the next ISS pass for the user's automatically obtained location. It also retrieves the altitude of the user's location and returns the pass time in the observer's time zone. Weather forecasts are also included in the program to obtain a more accurate result, with a particular focus on clouds, ensuring the safety of this statement. All this is output as text in a plot, with weather data shown on the maps.
 
 
-Hinweis:    Die XML-Daten werden von der offiziellen NASA-Website heruntergeladen: https://data.nasa.gov/browse?q=ISS+COORDS
+            Hinweis:    
+            Die XML-Daten werden von der offiziellen NASA-Website heruntergeladen: https://data.nasa.gov/browse?q=ISS+COORDS
             Die CSV-Daten werden von einem Github-Projekt heruntergeladen: https://github.com/natronics/ISS-photo-locations/tree/master
             Es werden folgende API-Keys verwendet:
                 Open Notify: http://open-notify.org
