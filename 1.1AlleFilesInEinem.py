@@ -1,14 +1,14 @@
 """
-Dieses Skript enthält mehrere Programme zur Erstellung von Bildern und Visualisierungen der ISS-Trajektorie.
-Jedes Programm hat eine eigene Funktion und wird nacheinander ausgeführt.
+Dieses Skript enthÃ¤lt mehrere Programme zur Erstellung von Bildern und Visualisierungen der ISS-Trajektorie.
+Jedes Programm hat eine eigene Funktion und wird nacheinander ausgefÃ¼hrt.
 
 Programm 1:
 Dieses Programm liest CSV-Dateien mit ISS-Bewegungsdaten ein und erstellt eine Karte der ISS-Trajektorien auf der Erde.
 Die Daten sind schon in Polar-Koordinaten und werden auf der Karte gezeigt. Hier wird auch ersichtlich, wo wieviele Fotos gemacht wurden.
 
 Programm 2:
-Dieses Programm liest XML-Daten �ber die ISS-Spacestation ein und konvertiert die kartesischen Koordinaten in longitudinale und laterale Koordinaten.
-Es werden die L�ngen- und Breitengrade der ISS-Trajektorie auf einer 2D-Karte der Welt dargestellt.
+Dieses Programm liest XML-Daten über die ISS-Spacestation ein und konvertiert die kartesischen Koordinaten in longitudinale und laterale Koordinaten.
+Es werden die Längen- und Breitengrade der ISS-Trajektorie auf einer 2D-Karte der Welt dargestellt.
 
 Programm 3:
 Dieses Programm visualisiert die 3D-Trajektorie der ISS basierend auf XML-Daten.
@@ -16,24 +16,24 @@ Dies wird hier auf einer durchsichtigen Kugel gemacht, um die Umlaufbahn besser 
 
 Programm 4:
 Dieses Programm visualisiert die Trajektorie der ISS auf einem rotierenden 3D-Globus in 2D.
-Es wird ein GIF erstellt, welches die rotierende Erdkugel mit den ISS-Laufbahn dar�ber zeigt
+Es wird ein GIF erstellt, welches die rotierende Erdkugel mit den ISS-Laufbahn darüber zeigt
 
 Programm 5:
 Dieses Programm visualisiert die Trajektorie der ISS auf einem 3D-Globus.
-Die Daten k�nnen in der Grafik rotiert und somit von allen Seiten gesehen werden. 
-Die ISS wird in der richtigen h�he �ber der Erde geplottet und es wird auch Ihre umlaufbahn sichtbar.
+Die Daten können in der Grafik rotiert und somit von allen Seiten gesehen werden. 
+Die ISS wird in der richtigen höhe über der Erde geplottet und es wird auch Ihre umlaufbahn sichtbar.
 
 Programm 6:
 Dieses Programm visualisiert die aktuelle Position der ISS auf einer Karte.
 Es verwendet ein API um die Position der ISS zum Zeitpunkt des laufens des Programmes zu erhalten.
-Diese Ortschaft wird dann f�r einen Zeitraum oder unendlich lange auf der Karte erneuert.
+Diese Ortschaft wird dann für einen Zeitraum oder unendlich lange auf der Karte erneuert.
 
 Programm 7:
 Dieses Skript ruft den vorhergesagten Standort der Internationalen Raumstation (ISS) mithilfe der N2YO-API ab.
-Es berechnet die Startzeit des nächsten ISS-Überflugs f�r den automatisch erhaltenen Aufenthaltsorts des Nutzer zur�ck.
-Es holt auch die h�he des Ortes, des Nutzers und gibt die �berflugszeit in der Zeitzone des Beobachters zur�ck.
+Es berechnet die Startzeit des nÃ¤chsten ISS-Ãœberflugs für den automatisch erhaltenen Aufenthaltsorts des Nutzer zurück.
+Es holt auch die höhe des Ortes, des Nutzers und gibt die Überflugszeit in der Zeitzone des Beobachters zurück.
 Ausserdem werden auch noch die Wettervorhersagen in das Programm mit einbezogen, um ein genaueres Ergebniss zu erhalten.
-Hier wird besonders auf die Wolken acht gegeben, wobei auch die Sicherheit f�r diese Aussage gegeben wird.
+Hier wird besonders auf die Wolken acht gegeben, wobei auch die Sicherheit für diese Aussage gegeben wird.
 All dies wird in einem Plot als Text ausgegeben, wobei auf den Karten noch die Wetterdaten gezeigt werden.
 
 
@@ -47,7 +47,7 @@ Hinweis:    Die XML-Daten werden von der offiziellen NASA-Website heruntergelade
                 Open-Elevevation-API: https://api.open-elevation.com/api/v1/
                 OpenWeatherAPI: https://api.openweathermap.org/data/2.5
                 
-            Es werden folgende Librarys/Module verwendet (m�ssen installiert werden):
+            Es werden folgende Librarys/Module verwendet (müssen installiert werden):
                 import pandas as pd
                 import matplotlib.pyplot as plt
                 import cartopy.crs as ccrs
@@ -73,8 +73,8 @@ Hinweis:    Die XML-Daten werden von der offiziellen NASA-Website heruntergelade
 """
 
 """
-Die sind alle Programme, die ich für die Erstellung der Bilder verwendet habe.
-Sie werden hier mit einführenden Kommentaren voneinander getrennt, jedoch werden die Module immer von neuem geladen.
+Die sind alle Programme, die ich fÃ¼r die Erstellung der Bilder verwendet habe.
+Sie werden hier mit einfÃ¼hrenden Kommentaren voneinander getrennt, jedoch werden die Module immer von neuem geladen.
 Dies wird gemacht, um die einzelnen Programme einfacher zu verstehen und zu bearbeiten.
 
 Die Programme sind in der Reihenfolge, wie ich sie verwendet habe, um die Bilder oder GIFS zu erstellen.
@@ -87,13 +87,13 @@ Erstellt am Mi Jan  3 19:26:06 2024
 Dieses Skript liest CSV-Dateien mit ISS-Bewegungsdaten ein und erstellt eine Karte der ISS-Trajektorien auf der Erde.
 Es verwendet die Module pandas, matplotlib und cartopy.
 
-Das Skript durchläuft alle CSV-Dateien im angegebenen Verzeichnis und zeichnet die ISS-Trajektorien auf einer Karte der Erde.
+Das Skript durchlÃ¤uft alle CSV-Dateien im angegebenen Verzeichnis und zeichnet die ISS-Trajektorien auf einer Karte der Erde.
 Die Trajektorien werden als rote gestrichelte Linien dargestellt, wobei jeder Punkt durch einen roten Punkt markiert ist.
 
-Die Karte wird mit der PlateCarree-Projektion erstellt und zeigt die Küstenlinien der Erde an.
-Die Achsenbeschriftungen und der Titel werden festgelegt, und eine Legende wird für alle Dokumente erstellt.
+Die Karte wird mit der PlateCarree-Projektion erstellt und zeigt die KÃ¼stenlinien der Erde an.
+Die Achsenbeschriftungen und der Titel werden festgelegt, und eine Legende wird fÃ¼r alle Dokumente erstellt.
 
-Das Skript zeigt das fertige Plot an, bei dem alle Trajektorien übereinander gelegt werden.
+Das Skript zeigt das fertige Plot an, bei dem alle Trajektorien Ã¼bereinander gelegt werden.
 
 Die Daten und die Idee wurde von https://github.com/natronics/ISS-photo-locations/tree/master bezogen
 
@@ -141,10 +141,10 @@ ax.set_title('ISS Trajectories on Earth Map')
 # optional: die ganze Weltkarte anzeigen
 ax.set_global()
 
-# eine einzige Legende für alle Dokumente haben
+# eine einzige Legende fÃ¼r alle Dokumente haben
 ax.legend(['ISS Trajectories'], loc='upper left')
 
-# das Plot zeigen (alle Dokumente werden übereinander gelegt)
+# das Plot zeigen (alle Dokumente werden Ã¼bereinander gelegt)
 # plt.show()
 
 output_path_final_picture = '1_Programm_ISS_CSV_Data.png'
@@ -162,8 +162,8 @@ print("----------------")
 """
 Erstellt am Mi Jan  3 15:22:02 2024
 
-Dieses Skript liest XML-Daten über die ISS-Spacestation ein und konvertiert die kartesischen Koordinaten in longitudinale und laterale Koordinaten.
-Es werden die Längen- und Breitengrade der ISS-Trajektorie auf einer 2D-Karte der Welt dargestellt.
+Dieses Skript liest XML-Daten Ã¼ber die ISS-Spacestation ein und konvertiert die kartesischen Koordinaten in longitudinale und laterale Koordinaten.
+Es werden die LÃ¤ngen- und Breitengrade der ISS-Trajektorie auf einer 2D-Karte der Welt dargestellt.
 
 Die XML-Daten werden von der offiziellen NASA-Website heruntergeladen: https://data.nasa.gov/browse?q=ISS+COORDS
 
@@ -185,22 +185,22 @@ import math
 import os
 
 # die Daten sind von der Offiziellen Nasa-Seite: https://data.nasa.gov/browse?q=ISS+COORDS
-# der Datenweg für die XML Daten
+# der Datenweg fÃ¼r die XML Daten
 xml_path = "Daten/XmlData"
 
 # finale Bilder
 output_path_final = 'Finale_Bilder'
 os.makedirs(output_path_final, exist_ok=True)
 
-# leere Listen für die Daten
+# leere Listen fÃ¼r die Daten
 lons = []
 lats = []
 
 # itterier durch alle Dokumente in dem Ordner
 for file in os.listdir(xml_path):
-    # gibt den vollständigen Datenweg an
+    # gibt den vollstÃ¤ndigen Datenweg an
     file_path = os.path.join(xml_path, file)
-    # die Daten werden geöffnet
+    # die Daten werden geÃ¶ffnet
     root = ET.parse(file_path)
 
     # itteriert durch die Baumstrucktur der XML Daten
@@ -225,11 +225,11 @@ for file in os.listdir(xml_path):
         lon = math.degrees(lon)
         lat = math.degrees(lat)
         
-        # die Daten waren nicht zentriert und mussten in die Mitte des Bildes gerückt werden
+        # die Daten waren nicht zentriert und mussten in die Mitte des Bildes gerÃ¼ckt werden
         lat -= 90
         lon -= 180
         
-        # die Daten der Liste hinzufügen
+        # die Daten der Liste hinzufÃ¼gen
         lons.append(lon)
         lats.append(lat)
 
@@ -329,7 +329,7 @@ def plot_3d_trajectory_start(ax, x_values, y_values, z_values):
 
 # Iteriere durch alle XML-Dateien im Ordner
 for file in os.listdir(xml_path):
-    # Vollständiger Pfad zur Datei
+    # VollstÃ¤ndiger Pfad zur Datei
     file_path = os.path.join(xml_path, file)
 
     # Analysiere die XML-Datei
@@ -423,13 +423,13 @@ Dieses Skript visualisiert die Trajektorie der Internationalen Raumstation (ISS)
 Es verwendet XML-Daten, die die ISS-Koordinaten enthalten, und erstellt eine Animation der ISS-Trajektorie auf einem rotierenden Globus.
 
 Das Skript verwendet die Basemap-Bibliothek, um den Globus zu erstellen, und die ElementTree-Bibliothek, um die XML-Daten zu analysieren.
-Es erstellt eine Reihe von Bildern, die die ISS-Trajektorie auf dem Globus darstellen, und erstellt schließlich eine GIF-Animation.
+Es erstellt eine Reihe von Bildern, die die ISS-Trajektorie auf dem Globus darstellen, und erstellt schlieÃŸlich eine GIF-Animation.
 
 Die XML-Daten werden von der offiziellen NASA-Website heruntergeladen: https://data.nasa.gov/browse?q=ISS+COORDS
 
 Die erstellten Bilder und das GIF werden im angegebenen Ausgabeverzeichnis gespeichert.
 
-Hinweis: Dieses Skript hatte einige abgeänderte Formeln von schon vorhandenem Code, der auf Stack Overflow verfügbar ist: https://stackoverflow.com/questions/30269099/how-to-plot-a-rotating-3d-earth
+Hinweis: Dieses Skript hatte einige abgeÃ¤nderte Formeln von schon vorhandenem Code, der auf Stack Overflow verfÃ¼gbar ist: https://stackoverflow.com/questions/30269099/how-to-plot-a-rotating-3d-earth
 """
 print("----------------")
 print("----------------")
@@ -454,10 +454,10 @@ def plot_iss_trajectory(ax, x, y, markersize, linewidth, color='red', label='ISS
         ax (matplotlib.axes.Axes): Die Achsen, auf denen geplottet werden soll.
         x (list): Die x-Koordinaten der Trajektorie.
         y (list): Die y-Koordinaten der Trajektorie.
-        markersize (float): Die Größe der Marker, die die Trajektoriepunkte darstellen.
+        markersize (float): Die GrÃ¶ÃŸe der Marker, die die Trajektoriepunkte darstellen.
         linewidth (float): Die Breite der Linie, die die Trajektorie darstellt.
-        color (str, optional): Die Farbe der Trajektorie. Standardmäßig 'red'.
-        label (str, optional): Das Label für die Trajektorie. Standardmäßig 'ISS Trajectory'.
+        color (str, optional): Die Farbe der Trajektorie. StandardmÃ¤ÃŸig 'red'.
+        label (str, optional): Das Label fÃ¼r die Trajektorie. StandardmÃ¤ÃŸig 'ISS Trajectory'.
     """
     ax.plot(x, y, markersize=markersize, linewidth=linewidth, color=color, label=label)
 
@@ -468,7 +468,7 @@ def plot_globe(turning, markersize, linewidth):
 
     Parameter:
         turning (int): Der Drehwinkel des Globus.
-        markersize (float): Die Größe der Marker, die die Trajektoriepunkte darstellen.
+        markersize (float): Die GrÃ¶ÃŸe der Marker, die die Trajektoriepunkte darstellen.
         linewidth (float): Die Breite der Linie, die die Trajektorie darstellt.
     """
     my_map = Basemap(projection='ortho', lat_0=0, lon_0=turning*20, resolution='l', area_thresh=1000.0)
@@ -493,7 +493,7 @@ def plot_globe(turning, markersize, linewidth):
     plt.close()
         
 
-# Der Datenpfad für die XML-Daten
+# Der Datenpfad fÃ¼r die XML-Daten
 xml_path = "Daten/XmlData"
 
 output_path = 'ZwischenAblage'
@@ -503,7 +503,7 @@ os.makedirs(output_path, exist_ok=True)  # Erstelle das Ausgabeverzeichnis, fall
 output_path_final = 'Finale_Bilder'
 os.makedirs(output_path_final, exist_ok=True)
 
-# Leere Listen für die Daten
+# Leere Listen fÃ¼r die Daten
 lons = []
 lats = []
 
@@ -519,9 +519,9 @@ itterative_turning = 0
 
 # Iteriere durch alle Dokumente in dem Ordner
 for file in os.listdir(xml_path):
-    # Gib den vollständigen Dateipfad an
+    # Gib den vollstÃ¤ndigen Dateipfad an
     file_path = os.path.join(xml_path, file)
-    # Öffne die Daten
+    # Ã–ffne die Daten
     root = ET.parse(file_path)
 
     # Iteriere durch die Baumstruktur der XML-Daten
@@ -550,7 +550,7 @@ for file in os.listdir(xml_path):
         lon = math.degrees(lon)
         lat = math.degrees(lat)
         
-        # Die Daten waren nicht zentriert und mussten in die Mitte des Bildes gerückt werden
+        # Die Daten waren nicht zentriert und mussten in die Mitte des Bildes gerÃ¼ckt werden
         lat -= 90
         lon -= 180
         
@@ -561,7 +561,7 @@ for file in os.listdir(xml_path):
         
         lon -= globe_itterative_turning
         
-        # Füge die Daten der Liste hinzu
+        # FÃ¼ge die Daten der Liste hinzu
         lons.append(lon)
         lats.append(lat)
 
@@ -638,10 +638,10 @@ import imageio
 output_path_final = 'Finale_Bilder'
 os.makedirs(output_path_final, exist_ok=True)
 
-# Das Bild f�r den Globus laden (entweder earthmap.jpg oder earthmap3.jpg)
+# Das Bild für den Globus laden (entweder earthmap.jpg oder earthmap3.jpg)
 bm = PIL.Image.open('Daten/BilderKreationGlobus/earthmap.jpg')
 # Rescale, convert to array, and divide by 256 to get RGB values
-# Gr�sse �ndern, zu einer array umwandeln und mit 256 dividieren um die RBG Werte zu erhalten
+# Grösse ändern, zu einer array umwandeln und mit 256 dividieren um die RBG Werte zu erhalten
 bm = np.array((np.array(bm.resize([int(round(d/1)) for d in bm.size])))/256)
 
 # Koordinaten des Bildes
@@ -650,10 +650,10 @@ lats = np.linspace(-90, 90, bm.shape[0])[::-1] * np.pi/180
 
 # Radius der Erde in KM
 earth_radius = 6371
-# F�r bessere Darstellung der Daten kleinere Erde
+# Für bessere Darstellung der Daten kleinere Erde
 #earth_radius = 5000
 
-# Variable i und gross_i definieren um itterieren zu k�nnen
+# Variable i und gross_i definieren um itterieren zu können
 i = 0
 big_i = 0
 
@@ -779,7 +779,7 @@ Dieses Skript verwendet die ISS-API, um die aktuelle Position der Internationale
 Es werden die Module matplotlib, cartopy und requests verwendet.
 
 Funktionen:
-- get_iss_location(): Ruft die aktuelle Position der ISS über die ISS-API ab und gibt die Koordinaten zurück.
+- get_iss_location(): Ruft die aktuelle Position der ISS Ã¼ber die ISS-API ab und gibt die Koordinaten zurÃ¼ck.
 - plot_iss_trajectory(location, title): Plottet die aktuelle ISS-Position und die vorherigen Positionen auf einer Karte.
 - update(): Aktualisiert die ISS-Position alle 5 Sekunden und zeigt den Plot an.
 
@@ -801,9 +801,9 @@ import os
 output_path_final = 'Finale_Bilder'
 os.makedirs(output_path_final, exist_ok=True)
 
-# die Startzeit festsetzen, diese wird nicht überschrieben
+# die Startzeit festsetzen, diese wird nicht Ã¼berschrieben
 start_time = time.time()
-# diese Startzeit wird später überschrieben
+# diese Startzeit wird spÃ¤ter Ã¼berschrieben
 start_time2 = time.time()
 
 # Listen um die alten Kooridinaten zu speichern
@@ -817,7 +817,7 @@ def get_iss_location():
     # Die Daten in die "data" Variable zu packen
     data = response.json()
 
-    # die Koordinate aus den Daten zurückgeben
+    # die Koordinate aus den Daten zurÃ¼ckgeben
     return {
         'latitude': float(data['iss_position']['latitude']),
         'longitude': float(data['iss_position']['longitude'])
@@ -828,7 +828,7 @@ def plot_iss_trajectory(location, title):
     # Eine Karte erstellen
     fig, ax = plt.subplots(subplot_kw={'projection': ccrs.PlateCarree()})
     ax.coastlines()
-    # Die aktuellen Koordinaten den Listen hinzufügen
+    # Die aktuellen Koordinaten den Listen hinzufÃ¼gen
     x_values.append(location['longitude'])
     y_values.append(location['latitude'])
     
@@ -858,7 +858,7 @@ def plot_iss_trajectory(location, title):
 
 # die Funktion um alles aufzuzeigen
 def update():
-    # die Variablen in der Funktion verfügbar machen
+    # die Variablen in der Funktion verfÃ¼gbar machen
     global start_time, start_time2
     
     # die Funktion die unendlich Lange aufzeigen
@@ -890,10 +890,10 @@ print("----------------")
 Erstellt am Mi Jan 18 13:48:16 2024
 
 Dieses Skript ruft den vorhergesagten Standort der Internationalen Raumstation (ISS) mithilfe der N2YO-API ab.
-Es berechnet die Startzeit des nächsten ISS-Überflugs f�r den automatisch erhaltenen Aufenthaltsorts des Nutzer zur�ck.
-Es holt auch die h�he des Ortes, des Nutzers und gibt die �berflugszeit in der Zeitzone des Beobachters zur�ck.
+Es berechnet die Startzeit des nÃ¤chsten ISS-Ãœberflugs für den automatisch erhaltenen Aufenthaltsorts des Nutzer zurück.
+Es holt auch die höhe des Ortes, des Nutzers und gibt die Überflugszeit in der Zeitzone des Beobachters zurück.
 Ausserdem werden auch noch die Wettervorhersagen in das Programm mit einbezogen, um ein genaueres Ergebniss zu erhalten.
-Hier wird besonders auf die Wolken acht gegeben, wobei auch die Sicherheit f�r diese Aussage gegeben wird.
+Hier wird besonders auf die Wolken acht gegeben, wobei auch die Sicherheit für diese Aussage gegeben wird.
 All dies wird in einem Plot als Text ausgegeben, wobei auf den Karten noch die Wetterdaten gezeigt werden.
 Dies wird erreicht mit folgenden APIs:
                 N2YO-API: https://www.n2yo.com/api/
@@ -918,8 +918,8 @@ import cartopy.crs as ccrs
 import matplotlib.image as mpimg
 import os
 
-# Die nächsten überflüge als Zahl, default = 0
-# (falls man nicht die nächste, sondern irgend eine danach will, so muss man dies auswählen)
+# Die nÃ¤chsten Ã¼berflÃ¼ge als Zahl, default = 0
+# (falls man nicht die nÃ¤chste, sondern irgend eine danach will, so muss man dies auswÃ¤hlen)
 # (die Zahlen werden im Plot auch angezeigt)
 next_pass_num = 0
 
@@ -929,18 +929,18 @@ os.makedirs(output_path_final, exist_ok=True)
 
 def get_iss_position_data(observer_latitude, observer_longitude, observer_altitude, observable_days, observable_seconds):
     """
-    Ruft den vorhergesagten Standort der ISS ab und berechnet die Startzeit des nächsten ISS-Überflugs.
+    Ruft den vorhergesagten Standort der ISS ab und berechnet die Startzeit des nÃ¤chsten ISS-Ãœberflugs.
 
     Parameter:
     observer_latitude (float): Die Breitengrad des Beobachtungsortes.
-    observer_longitude (float): Die Längengrad des Beobachtungsortes.
-    observer_altitude (int): Die Höhe des Beobachtungsortes in Metern.
-    observable_days (int): Die Anzahl der Tage, für die die ISS-Überflugvorhersagen abgerufen werden sollen (maximal 10).
-    observable_seconds (int): Die Anzahl der Sekunden, die für jeden ISS-Überflug berücksichtigt werden sollen.
-    seconds_in_future (int): Die Anzahl der Sekunden in der Zukunft, um die Startzeit des ISS-Überflugs vorherzusagen (Standardwert ist 0).
+    observer_longitude (float): Die LÃ¤ngengrad des Beobachtungsortes.
+    observer_altitude (int): Die HÃ¶he des Beobachtungsortes in Metern.
+    observable_days (int): Die Anzahl der Tage, fÃ¼r die die ISS-Ãœberflugvorhersagen abgerufen werden sollen (maximal 10).
+    observable_seconds (int): Die Anzahl der Sekunden, die fÃ¼r jeden ISS-Ãœberflug berÃ¼cksichtigt werden sollen.
+    seconds_in_future (int): Die Anzahl der Sekunden in der Zukunft, um die Startzeit des ISS-Ãœberflugs vorherzusagen (Standardwert ist 0).
 
-    Rückgabe:
-    datetime.datetime: Die Startzeit des nächsten ISS-Überflugs in der Zeitzone des Beobachters.
+    RÃ¼ckgabe:
+    datetime.datetime: Die Startzeit des nÃ¤chsten ISS-Ãœberflugs in der Zeitzone des Beobachters.
     """
     # leere Listen erstellen
     start_time_gmt_list = []
@@ -950,8 +950,8 @@ def get_iss_position_data(observer_latitude, observer_longitude, observer_altitu
     iss_mag_list = []
     iss_duration_list = []
 
-    # Verwenden Sie die N2YO-API, um den Standort der ISS zu einem zukünftigen Zeitpunkt zu erhalten
-    iss_position_url = f"https://api.n2yo.com/rest/v1/satellite/visualpasses/25544/{observer_latitude}/{observer_longitude}/{observer_altitude}/{observable_days}/{observable_seconds}/&apiKey=NJDDHW-KZPFKB-XTCUM9-56XH"
+    # Verwenden Sie die N2YO-API, um den Standort der ISS zu einem zukÃ¼nftigen Zeitpunkt zu erhalten
+    iss_position_url = f"https://api.n2yo.com/rest/v1/satellite/visualpasses/25544/{observer_latitude}/{observer_longitude}/{observer_altitude}/{observable_days}/{observable_seconds}/&apiKey=" #ADD API_Key
     response = requests.get(iss_position_url)
     iss_data = response.json()
     
@@ -960,7 +960,7 @@ def get_iss_position_data(observer_latitude, observer_longitude, observer_altitu
 
     i = 0
     for i in range (0, passescount):
-        # Holen der Startzeit und weiteren Faktoren des nächsten ISS-Überflugs
+        # Holen der Startzeit und weiteren Faktoren des nÃ¤chsten ISS-Ãœberflugs
         start_utc = iss_data['passes'][i]['startUTC']
         start_compass = iss_data['passes'][i]['startAzCompass']
         end_compass = iss_data['passes'][i]['endAzCompass']
@@ -977,12 +977,12 @@ def get_iss_position_data(observer_latitude, observer_longitude, observer_altitu
         # Konvertieren Sie den Unix-Zeitstempel in ein datetime-Objekt
         start_time = datetime.datetime.fromtimestamp(start_utc)
 
-        # Holen die Zeitzone für den Beobachtungsort
-        geonames_username = "sansiro8"  # GeoNames-Benutzernamen
+        # Holen die Zeitzone fÃ¼r den Beobachtungsort
+        geonames_username = "YourUserName"  # GeoNames-Benutzernamen
         timezone_url = f"http://api.geonames.org/timezoneJSON?lat={observer_latitude}&lng={observer_longitude}&username={geonames_username}"
         response = requests.get(timezone_url)
         timezone_data = response.json()
-        # Wenn die Zeitzone-ID verfügbar ist, wird eine Zeitzone damit erstellt
+        # Wenn die Zeitzone-ID verfÃ¼gbar ist, wird eine Zeitzone damit erstellt
         if 'timezoneId' in timezone_data:
             observer_timezone = timezone(timezone_data['timezoneId'])
         # Andernfalls verwenden man den GMT-Offset, um eine Zeitzone zu erstellen
@@ -1017,7 +1017,7 @@ loc = location_data['loc']
 lat, lon = map(float, loc.split(','))
 
 elevation = get_elevation(lat, lon)
-# Ersetzen Sie die Beobachterkoordinaten durch Ihren gewünschten Standort
+# Ersetzen Sie die Beobachterkoordinaten durch Ihren gewÃ¼nschten Standort
 observer_latitude = lat  #kann auch manuell gesetzt werden. Zum Beispiel 47.36667
 observer_longitude = lon
 observer_altitude = elevation
@@ -1041,10 +1041,10 @@ Von hier werden die Wetterdaten abgerufen
 
 
 def get_weather_data(lat, lon):
-    api_key = "390f981cb9c1c7b65ad370164ffdb47a"
+    api_key = "YourAPIKey"
     base_url = f"https://api.openweathermap.org/data/2.5/forecast?lat={observer_latitude}&lon={observer_longitude}&appid={api_key}"
-    map_url_precipitation = f"https://tile.openweathermap.org/map/precipitation/0/0/0.png?appid=390f981cb9c1c7b65ad370164ffdb47a"
-    map_url_wind = f"https://tile.openweathermap.org/map/wind/0/0/0.png?appid=390f981cb9c1c7b65ad370164ffdb47a"
+    map_url_precipitation = f"https://tile.openweathermap.org/map/precipitation/0/0/0.png?appid={api_key}"
+    map_url_wind = f"https://tile.openweathermap.org/map/wind/0/0/0.png?appid={api_key}"
 
     # parameters for the API request
     params = {
@@ -1131,7 +1131,7 @@ Von hier an werden die wichtigen Daten auf einem Plot dargestellt
 # Erstellen Sie eine Figure und zwei Subplots nebeneinander
 fig, (ax1, ax2) = plt.subplots(1, 2, subplot_kw={'projection': ccrs.PlateCarree()})
 
-# Zeichnen Sie die Küstenlinien auf beiden Subplots
+# Zeichnen Sie die KÃ¼stenlinien auf beiden Subplots
 ax1.coastlines(alpha=1)
 ax2.coastlines(alpha=1)
 
@@ -1139,7 +1139,7 @@ ax2.coastlines(alpha=1)
 weather_map_img_pre = mpimg.imread('weather_map_pre.png')
 weather_map_img_temp = mpimg.imread('weather_map_wind.png')
 
-# Überlagern Sie das Wetterkartenbild auf beiden Karten
+# Ãœberlagern Sie das Wetterkartenbild auf beiden Karten
 ax1.imshow(weather_map_img_pre, extent=[-180, 180, -90, 90], alpha=1)
 ax2.imshow(weather_map_img_temp, extent=[-180, 180, -90, 90], alpha=1)
 
